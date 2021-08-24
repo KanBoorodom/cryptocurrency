@@ -1,0 +1,8 @@
+.currencyDropdown__select{
+    background: #1c1f2e;
+    color: white;
+    outline: none;
+    text-transform: uppercase;
+    margin-top: 3em;
+    width: fit-content;
+}

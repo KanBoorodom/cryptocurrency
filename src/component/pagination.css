@@ -1,0 +1,23 @@
+.pagination__ul{
+    display:flex;
+    padding:0;
+    margin:2em 0;
+}
+.pagination__page {
+    color: #706767;
+    list-style: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding:.25em 0;
+    text-align: center;
+    width:30px;
+    border:2px solid #363557;
+}
+.pagination__page:hover{
+    border-color:#49486e;    
+}
+.pagination__page--active {
+    color: #d3d9f4;
+    background: #272d49;
+    font-weight: 500;
+}
