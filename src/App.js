@@ -24,6 +24,7 @@ function App() {
     .then(res => {
         setCoins(res.data)
         setLoading(false)
+        window.scrollTo(0, 0)
       })
     .catch(error => console.log(error));
   }, [currncySelected,currentPage])
@@ -48,27 +49,29 @@ function App() {
         setCurrncySelected = {setCurrncySelected}
         currency = {currency}
       />
-      {loading ?       
-        <Loader
-          type="Puff"
-          color="#00BFFF"
-          height={500}
-          width={500}
-          className = 'loader'
-        />
-        :filteredCoins.map(coin => {
-          return <Coin 
-                    key = {coin.id} 
-                    name = {coin.name}
-                    image = {coin.image} 
-                    symbol = {coin.symbol}
-                    volume = {coin.market_cap}
-                    currncySelected = {currncySelected}
-                    price = {coin.current_price}
-                    priceChange = {coin.price_change_percentage_24h}  
-                />
-        })
-      }
+      <div className="coin__container">
+        {loading ?       
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={500}
+            width={500}
+            className = 'loader'
+          />
+          :filteredCoins.map(coin => {
+            return <Coin 
+                      key = {coin.id} 
+                      name = {coin.name}
+                      image = {coin.image} 
+                      symbol = {coin.symbol}
+                      volume = {coin.market_cap}
+                      currncySelected = {currncySelected}
+                      price = {coin.current_price}
+                      priceChange = {coin.price_change_percentage_24h}  
+                  />
+          })
+        }
+      </div>
       <Pagination currentPage = {currentPage} setCurrentPage = {setCurrentPage} />
       
     </div>

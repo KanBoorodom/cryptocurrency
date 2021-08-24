@@ -3,9 +3,10 @@
   box-sizing: border-box;
   margin:0;
   font-family: 'IBM Plex Sans Thai', sans-serif;
-  font-size:16px;
+/*    */
 }
 body{
+  font-size:16px;
   background:#1c1f2e;
 }
 .coinapp{
@@ -23,4 +24,25 @@ body{
 .loader{
   display:flex;
   justify-content: center;
+}
+
+@media only screen and (min-width: 700px) {
+  .coin__container{
+    display:flex;
+    flex-wrap: wrap;
+    padding:.5em;
+    /* padding:1em; */
+  }
+
+}
+
+@media only screen and (min-width: 850px) {
+  .coin__container{
+    display:flex;
+    flex-wrap: wrap;
+    padding:.5em;
+    justify-content: space-around;
+    /* padding:1em; */
+  }
+
 }

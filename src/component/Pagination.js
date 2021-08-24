@@ -8,7 +8,6 @@ const Pagination = ({currentPage,setCurrentPage}) => {
     const onClick = e =>{
         setCurrentPage(parseInt(e.target.innerHTML))
     }
-    {console.log(currentPage)}
     return (
         <nav>
             <ul className = 'pagination__ul'>

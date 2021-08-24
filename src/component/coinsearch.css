@@ -8,6 +8,7 @@
     margin-top:1em;
     padding:.5em;
     color:white;
+    width:250px;
 }
 .coinsearch__input::placeholder{
     color:#8894a6;
