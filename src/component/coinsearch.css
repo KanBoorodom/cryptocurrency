@@ -1,11 +1,16 @@
-.coinsearch__input{
-    background: #C33764;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.coinsearch__form{
+    display:flex;
+    flex-direction: column;
+}
+.coinsearch__input,.coinsearch__input--searchall{
+    background: #C33764;  
+    background: -webkit-linear-gradient(to right, #1D2671, #C33764); 
+    background: linear-gradient(to right, #1D2671, #C33764); 
     outline: none;
     border:none;
     border-radius: 5px;
     margin-top:1em;
+    margin-bottom:1em;
     padding:.5em;
     color:white;
     width:250px;
@@ -13,3 +18,8 @@
 .coinsearch__input::placeholder{
     color:#8894a6;
 }
+.coinsearch__input--searchall{
+    background: #FC354C; 
+    background: -webkit-linear-gradient(to left, #FC354C, #0ABFBC); 
+    background: linear-gradient(to left, #FC354C, #0ABFBC); 
+    }

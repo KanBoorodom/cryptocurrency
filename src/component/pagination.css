@@ -13,8 +13,8 @@
     width:30px;
     border:2px solid #363557;
 }
-.pagination__page:hover{
-    border-color:#49486e;    
+.pagination__page:hover{ 
+    border-color:#646394; 
 }
 .pagination__page--active {
     color: #d3d9f4;

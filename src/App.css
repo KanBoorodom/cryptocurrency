@@ -9,16 +9,27 @@ body{
   font-size:16px;
   background:#1c1f2e;
 }
+.coin__container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .coinapp{
   background-color:#1c1f2e;
   color:white;
   display:flex;
+  position:relative;
   flex-direction: column;
   align-items: center;
+  min-width:320px;
+}
+.coinapp--blur{
+  filter:blur(50px);
 }
 .coinapp__name{
   color:#d6dfec;
   font-size:2rem;
+  margin-bottom:1em;
   text-transform: capitalize;
 }
 .loader{
@@ -29,9 +40,17 @@ body{
 @media only screen and (min-width: 700px) {
   .coin__container{
     display:flex;
+    flex-direction: row;
     flex-wrap: wrap;
     padding:.5em;
-    /* padding:1em; */
+  }
+  .coinapp{
+    align-items: none;
+  }
+  .coin__container{
+    display:flex;
+    flex-direction: row;
+    padding:.5em;
   }
 
 }
@@ -42,7 +61,5 @@ body{
     flex-wrap: wrap;
     padding:.5em;
     justify-content: space-around;
-    /* padding:1em; */
   }
-
 }

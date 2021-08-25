@@ -7,7 +7,6 @@ const Coin = ({name,image,symbol,price,volume,currncySelected,priceChange}) => {
             <img className = "coin__img" src= {image}  alt="crypto" />
             <div className = "coin__data">
                 <h1 className = "coin__name">{name} <br/>({symbol.toUpperCase()})</h1>
-                {/* <p className="coin-symbol">{symbol}</p> */}
                 <p className="coin__price">{currncySelected} {price.toLocaleString()}</p>
                 <p className="coin__volume">Mkt Cap <br/>{currncySelected.toUpperCase()} {volume.toLocaleString()}</p>
                 <p className = "coin__priceChange">24h change 
