@@ -1,5 +1,6 @@
 Cryptocurrency website\
 Search and view crypto price,MarketCap,24Hrs change percentage.\
+You can click at each coin name for more information at coingecko website.\
 You can adjust currency exchange rate by select an option at dropdown tab.\
 Crypto price refresh everytime page got refresh.\
 I got better understanding in HTML,CSS,React,API call and Responsive design (Mobile first) from creating this website.\
