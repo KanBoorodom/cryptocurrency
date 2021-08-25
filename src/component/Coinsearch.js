@@ -8,7 +8,7 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     const keyDown = e =>{
         if(e.key === 'Enter' && search.length !== 0){
             e.preventDefault()
-            setSearchAll(search.replace(/\s+/g, '-'))
+            setSearchAll(search.toLowerCase().replace(/\s+/g, '-'))
         }
         else if(e.key === 'Enter' && search.length === 0){
             e.preventDefault()
@@ -21,7 +21,7 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     return (
         <div className = 'coinsearch'>
             <form action="" className = 'coinsearch__form'>
-                <label htmlFor="searchPage">{search === '' ? 'Search' : 'Enter when done'}</label>
+                <label htmlFor="searchPage">{search === '' ? 'Search' : 'Press enter for searching'}</label>
                 <input type="text" 
                     placeholder = 'Enter coin name..'
                     id = 'searchPage'

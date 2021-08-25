@@ -6,7 +6,8 @@ const Coin = ({name,image,symbol,price,volume,currncySelected,priceChange}) => {
         <div className = 'coin'>
             <img className = "coin__img" src= {image}  alt="crypto" />
             <div className = "coin__data">
-                <h1 className = "coin__name">{name} <br/>({symbol.toUpperCase()})</h1>
+                <a href={`https://www.coingecko.com/en/coins/${name.toLowerCase().replace(/\s+/g, '-')}`} className = "coin__name">{name} <br/>({symbol.toUpperCase()})</a>
+                {/* <h1 className = "coin__name">{name} <br/>({symbol.toUpperCase()})</h1> */}
                 <p className="coin__price">{currncySelected} {price.toLocaleString()}</p>
                 <p className="coin__volume">Mkt Cap <br/>{currncySelected.toUpperCase()} {volume.toLocaleString()}</p>
                 <p className = "coin__priceChange">24h change 
