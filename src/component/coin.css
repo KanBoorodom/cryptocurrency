@@ -11,6 +11,16 @@
     font-size:1.5rem;
     font-weight: 500;
 }
+.coin__loadContainer{
+    width:100%;
+}
+.coin--load{
+    width:fit-content;
+    margin:auto;
+}
+.coin__chart{
+    margin-top:1.5em;
+}
 .coin__data{
     background: #373a48;
     color: #a0a0ae;

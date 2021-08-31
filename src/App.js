@@ -10,7 +10,7 @@ import Coinsearch from './component/Coinsearch';
 import SearchResult from './component/SearchResult';
 import CurrencyDropdown from './component/CurrencyDropdown';
 import Pagination from './component/Pagination';
-import { Line } from 'react-chartjs-2';
+
 function App() {
   const [coins,setCoins] = useState([])
   const [search,setSearch] = useState('')
@@ -20,8 +20,7 @@ function App() {
   const [currncySelected,setCurrncySelected] = useState('thb')
   const [loading,setLoading] = useState()
   const [currentPage,setCurrentPage] = useState(1)
-  const [coinID,setcoinID] = useState([])
-  const [chartValue,setChartValue] = useState([])
+
   /* Fetch all coin data in page*/
   useEffect(() => {
     const loadData = async () => {
@@ -106,7 +105,7 @@ function App() {
       {search.length === 0  && <Pagination currentPage = {currentPage} setCurrentPage = {setCurrentPage}/>}
       <div className="coin__container">
       {searchResult.length !== 0 && 
-              <SearchResult 
+/*               <SearchResult 
                 name = {searchResult.name}
                 image = {searchResult.image.large} 
                 symbol = {searchResult.symbol}
@@ -114,7 +113,19 @@ function App() {
                 currncySelected = {currncySelected}
                 price = {searchResult.market_data.current_price[`${currncySelected}`]}
                 priceChange = {searchResult.market_data.price_change_percentage_24h_in_currency[`${currncySelected}`]}  
-        />}
+              /> */
+              <Coin 
+                      name = {searchResult.name}
+                      id = {searchResult.id}
+                      image = {searchResult.image.large} 
+                      symbol = {searchResult.symbol}
+                      volume = {searchResult.market_data.market_cap[`${currncySelected}`]}
+                      currncySelected = {currncySelected}
+                      price = {searchResult.market_data.current_price[`${currncySelected}`]}
+                      priceChange = {searchResult.market_data.price_change_percentage_24h_in_currency[`${currncySelected}`]}
+                      searchAll = {searchAll}
+                  />
+        }
         {loading ?       
           <Loader
             type="Puff"
@@ -134,6 +145,7 @@ function App() {
                       currncySelected = {currncySelected}
                       price = {coin.current_price}
                       priceChange = {coin.price_change_percentage_24h}  
+                      searchAll = {searchAll}
                   />
           })
         :''}
