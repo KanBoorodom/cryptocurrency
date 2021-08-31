@@ -7,11 +7,13 @@ I got better understanding in HTML,CSS,React,API call and Responsive design (Mob
 Using coingecko API https://www.coingecko.com/en/api/documentation \
 Live test at https://kanboorodom.github.io/cryptocurrency/
 ![image](https://user-images.githubusercontent.com/78006318/130818966-72323799-0b6e-4013-95a4-c85f1574377c.png) \
-![image](https://user-images.githubusercontent.com/78006318/130820537-effa595c-4472-421c-9fb4-b3e5097b0767.png) \
-![image](https://user-images.githubusercontent.com/78006318/130820335-b82172b5-a01d-4525-b7ed-6f342a3b2941.png) \
-![image](https://user-images.githubusercontent.com/78006318/130819704-68f5cc82-5f39-44e6-bf91-6e9b9f9900c6.png) \
-![image](https://user-images.githubusercontent.com/78006318/130821153-916b68c9-8e3b-4f00-bd2f-7f23da9b171e.png) \
-![image](https://user-images.githubusercontent.com/78006318/130820963-052c5192-987e-482d-a82c-9044acbd7e49.png) \
-![image](https://user-images.githubusercontent.com/78006318/130821350-dd1f5545-bcd6-444d-90a4-49477eaee073.png) \
+![image](https://user-images.githubusercontent.com/78006318/131512094-efa8f165-da9e-426e-9f1f-3df5c4c98080.png) \
+![image](https://user-images.githubusercontent.com/78006318/131511703-ddc86710-c4b8-4d98-9fb0-c3031bd5484c.png) \
+![image](https://user-images.githubusercontent.com/78006318/131511811-40f345fe-9cea-452a-8e58-ddf731d3cd12.png) \
+![image](https://user-images.githubusercontent.com/78006318/131512373-838b1a26-395a-4cce-83c1-8941b23ee05a.png) \
+![image](https://user-images.githubusercontent.com/78006318/131512208-f7683349-16f0-4cc6-bad7-e8c4936bdede.png) \
+
+
+
 
 
