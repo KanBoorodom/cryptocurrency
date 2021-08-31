@@ -10,7 +10,7 @@ import Coinsearch from './component/Coinsearch';
 import SearchResult from './component/SearchResult';
 import CurrencyDropdown from './component/CurrencyDropdown';
 import Pagination from './component/Pagination';
-
+import { Line } from 'react-chartjs-2';
 function App() {
   const [coins,setCoins] = useState([])
   const [search,setSearch] = useState('')
@@ -20,13 +20,14 @@ function App() {
   const [currncySelected,setCurrncySelected] = useState('thb')
   const [loading,setLoading] = useState()
   const [currentPage,setCurrentPage] = useState(1)
-
+  const [coinID,setcoinID] = useState([])
+  const [chartValue,setChartValue] = useState([])
   /* Fetch all coin data in page*/
   useEffect(() => {
     const loadData = async () => {
       try{
         setLoading(true)
-        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currncySelected}&order=market_cap_desc&per_page=30&page=${currentPage}&sparkline=false`)
+        const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currncySelected}&order=market_cap_desc&per_page=12&page=${currentPage}&sparkline=false`)
         console.log(response.data)
         setCoins(response.data)
         setLoading(false)
@@ -39,6 +40,11 @@ function App() {
     loadData()
   }, [currncySelected,currentPage])
 
+/*   useEffect(()=>{
+    setChartValue(coinID.map(i => `https://api.coingecko.com/api/v3/coins/${i}/market_chart?vs_currency=thb&days=1`))
+    console.log(chartValue)
+  },[coins]) */
+  
   /* Fetch custom search */
   useEffect(()=>{
     const searchCoin = async () => {
@@ -121,6 +127,7 @@ function App() {
             return <Coin 
                       key = {coin.id} 
                       name = {coin.name}
+                      id = {coin.id}
                       image = {coin.image} 
                       symbol = {coin.symbol}
                       volume = {coin.market_cap}
