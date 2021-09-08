@@ -1,0 +1,45 @@
+.footer{
+    padding:2em 1em;
+    background-color:#1c1f2e;
+    width:100%;
+    color:#969090;
+}
+.fa-line,.fa-github-square,.fa-envelope-square{
+    font-size:2.25rem;
+    margin-right:.25em;
+    color:white;
+    transition:all 1s;
+    cursor:pointer;
+}
+.fa-line:hover{
+    color:#00b900;
+    transition:all 1s;
+}
+.fa-github-square:hover{
+    color:#6e5494;
+    transition:all 1s;
+}
+.fa-envelope-square:hover{
+    color:#d44a52;
+    transition:all 1s;
+}
+.footer__contactContainer{
+    position:relative;
+}
+.footer__contactContainer::after{
+    content:'Click to copy contact info';
+    position:absolute;
+    width:100%;
+    bottom:-50%;
+    left:0;
+    font-size:.8rem;
+}
+.gelatine {
+    animation: gelatine 0.5s;
+  }
+  @keyframes gelatine {
+    from, to { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05); }
+  }

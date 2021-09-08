@@ -59,8 +59,8 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
             label: 'Price',
             data: priceData,
             fill: true,
-            backgroundColor: priceChange > 0 ? '#125d1e':'#ff63844d' ,
-            borderColor: priceChange > 0 ? '#229534':'#f45050',
+            backgroundColor: priceChange > 0 ? '#125d1e':'#ff63844d' , 
+            borderColor: priceChange > 0 ? '#26bf3e':'#f45050',  /* #229534 */
             pointRadius:2,
             tension:0.1
           },
@@ -94,7 +94,8 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
                 <a href={`https://www.coingecko.com/en/coins/${name.toLowerCase().replace(/\s+/g, '-')}`} className = "coin__name">{name} <br/>({symbol.toUpperCase()})</a>
                 <p className="coin__price">{currncySelected} {price.toLocaleString()}</p>
                 <p className="coin__volume">Mkt Cap <br/>{currncySelected.toUpperCase()} {volume.toLocaleString()}</p>
-                <p className = "coin__priceChange">24h change 
+                <p className = "coin__priceChange" style = {{backgroundColor:priceChange > 0 ? '#1b7642' : '#722727'}}>24h change 
+                    <br />
                     {priceChange > 0 ? <span className = "coin__priceChange--green"> +{priceChange.toFixed(2)}%</span>
                         :<span className = "coin__priceChange--red"> {priceChange.toFixed(2)}%</span>}
                 </p>

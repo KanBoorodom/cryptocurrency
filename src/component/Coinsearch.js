@@ -8,7 +8,6 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     const keyDown = e =>{
         if(e.key === 'Enter' && search.length !== 0){
             e.preventDefault()
-            console.log(search.toLowerCase().replace(/\s+/g, '-'))
             setSearchAll(search.toLowerCase().replace(/\s+/g, '-'))
         }
         else if(e.key === 'Enter' && search.length === 0){

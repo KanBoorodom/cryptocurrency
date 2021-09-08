@@ -1,0 +1,17 @@
+.center{
+    padding:8em .5em 4em;
+    background: #F0F2F0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #1c1f2e, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #1c1f2e, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.center__head{
+    font-size:2rem;
+}
+.center__p{
+    color:#cac7c7;
+}
+.center__img{
+    width:90%;
+}
