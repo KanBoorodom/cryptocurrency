@@ -14,7 +14,7 @@
 .faq__answer{
     height:0;
     opacity:0;
-    transition:all 1s;
+    transition:all .5s;
     pointer-events: none;
     text-align: left;
 }
@@ -22,7 +22,7 @@
     padding:.5em;
     opacity:1;
     height:140px;
-    transition:all 1s;
+    transition:all .5s;
 }
 
 .faq__question--arrowUp{
@@ -63,7 +63,8 @@
     .faq{
         text-align: center;
         padding-top:5em;
-        height:60vh;
+/*         height:60vh;
+        max-height:1000px; */
     }
     .faq__head{
         font-size:3rem;

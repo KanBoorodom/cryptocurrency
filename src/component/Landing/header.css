@@ -27,7 +27,7 @@
 }
 .landing__header--header{
     font-size:2.5rem;
-    color:#D89216;
+    color:#ecae3f;
 }
 .landing__header--p{
     color: #e3d7d7;
@@ -43,24 +43,17 @@
     border-radius: 15px;
     padding:.1em 1.7em;
     margin:2em 0;
-    color:white;
     background: linear-gradient(to right, #1D2671, #C33764); 
     background-size: 300% 100%;
     font-family: 'IBM Plex Sans Thai', sans-serif;
     font-size:1.5rem;
     font-weight: 600;
+    color:white;
     cursor: pointer;
-    transition: all 10s;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
 .landing__header--btn:hover{
     background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
 
