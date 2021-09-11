@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/cryptocurrency/static/css/main.45355afd.chunk.css",
-    "main.js": "/cryptocurrency/static/js/main.b6ca48df.chunk.js",
-    "main.js.map": "/cryptocurrency/static/js/main.b6ca48df.chunk.js.map",
+    "main.js": "/cryptocurrency/static/js/main.bbc8375f.chunk.js",
+    "main.js.map": "/cryptocurrency/static/js/main.bbc8375f.chunk.js.map",
     "runtime-main.js": "/cryptocurrency/static/js/runtime-main.16a9c5d7.js",
     "runtime-main.js.map": "/cryptocurrency/static/js/runtime-main.16a9c5d7.js.map",
-    "static/js/2.48bc8b66.chunk.js": "/cryptocurrency/static/js/2.48bc8b66.chunk.js",
-    "static/js/2.48bc8b66.chunk.js.map": "/cryptocurrency/static/js/2.48bc8b66.chunk.js.map",
+    "static/js/2.7932e79f.chunk.js": "/cryptocurrency/static/js/2.7932e79f.chunk.js",
+    "static/js/2.7932e79f.chunk.js.map": "/cryptocurrency/static/js/2.7932e79f.chunk.js.map",
     "index.html": "/cryptocurrency/index.html",
     "static/css/main.45355afd.chunk.css.map": "/cryptocurrency/static/css/main.45355afd.chunk.css.map",
-    "static/js/2.48bc8b66.chunk.js.LICENSE.txt": "/cryptocurrency/static/js/2.48bc8b66.chunk.js.LICENSE.txt"
+    "static/js/2.7932e79f.chunk.js.LICENSE.txt": "/cryptocurrency/static/js/2.7932e79f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.16a9c5d7.js",
-    "static/js/2.48bc8b66.chunk.js",
+    "static/js/2.7932e79f.chunk.js",
     "static/css/main.45355afd.chunk.css",
-    "static/js/main.b6ca48df.chunk.js"
+    "static/js/main.bbc8375f.chunk.js"
   ]
 }
