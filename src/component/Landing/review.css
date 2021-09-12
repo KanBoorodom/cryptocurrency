@@ -1,11 +1,10 @@
 .review{
-/*     background-color:#edefed; */
     position:relative;
     font-family: 'Poppins', sans-serif;
     width:100%;
     padding:1em 1em 5em;
     background: #F0F2F0;  
-    height:800px;
+    height:900px;
 }
 .review::after{
     content:'';
@@ -39,7 +38,7 @@
     position:relative;
     width:100%;
     max-width: 350px;
-    margin:3em auto 0;
+    margin:3em auto;
     border-radius:15px;
     padding-bottom:1em;
     background-color:white;
@@ -87,11 +86,7 @@
     opacity:1;
     transition: all 1s ease;
 }
-@media screen and (min-width:375px) {
-    .review{
-            height:1000px;
-        }
-}
+
 @media screen and (min-width:700px) {
     .reviewCard{
         max-width: 400px;

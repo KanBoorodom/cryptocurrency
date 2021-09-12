@@ -14,8 +14,12 @@ function App() {
     <Router>
       <div className="coinapp">
         <Switch>
-          <Route exact path = "/" render = {()=>{return <Landing />}}></Route>
-          <Route exact path = "/home" render = {()=>{return <Home />}}></Route>
+          <Route exact path = "/cryptocurrency">
+              <Landing />
+          </Route>
+          <Route  exact path = "/home">
+            <Home />
+          </Route>
         </Switch>
       </div>
     </Router>

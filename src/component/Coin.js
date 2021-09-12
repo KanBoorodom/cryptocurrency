@@ -1,10 +1,8 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,memo} from 'react'
 import axios from 'axios'
 import Loader from "react-loader-spinner";
-
 import './coin.css'
-import { Line } from 'react-chartjs-2';
-
+import { defaults,Line } from 'react-chartjs-2';
 
 const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,searchAll}) => {
     const [dateData,setDateData] = useState([])
@@ -26,7 +24,6 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
       const getGraph = async (id) => {
         try{
           setLoad(true)
-          console.log(searchAll)
           var response
           if(searchAll.length !== 0){
             response = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}/market_chart?vs_currency=${currncySelected}&days=1`) 
@@ -34,8 +31,8 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
           else{
             response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currncySelected}&days=1`) 
           }
-          var graphDate = []
-          var graphValue = [] 
+          const graphDate = []
+          const graphValue = [] 
           for(let i of response.data.prices){
             graphDate.push(dateFormat(i[0]))
             graphValue.push(i[1])
@@ -50,8 +47,7 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
       }
       getGraph(id)
     },[id,searchAll,currncySelected])
-
-
+    defaults.font.size = 16
     const data = {
         labels: dateData,
         datasets: [
@@ -60,9 +56,9 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
             data: priceData,
             fill: true,
             backgroundColor: priceChange > 0 ? '#125d1e':'#ff63844d' , 
-            borderColor: priceChange > 0 ? '#26bf3e':'#f45050',  /* #229534 */
+            borderColor: priceChange > 0 ? '#26bf3e':'#f45050', 
             pointRadius:2,
-            tension:0.1
+            tension:0.1,
           },
         ],
       };
@@ -88,7 +84,7 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
       }
 
     return (
-        <div className = 'coin'>
+        <div className = {`coin ${priceChange > 0 ? 'coin__top--green' : 'coin__top--red'}`}>
             <img className = "coin__img" src= {image}  alt="crypto" />
             <div className = "coin__data">
                 <a href={`https://www.coingecko.com/en/coins/${name.toLowerCase().replace(/\s+/g, '-')}`} className = "coin__name">{name} <br/>({symbol.toUpperCase()})</a>
@@ -113,4 +109,4 @@ const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,sea
     )
 }
 
-export default Coin
+export default memo(Coin)

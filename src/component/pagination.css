@@ -21,3 +21,9 @@
     background: #272d49;
     font-weight: 500;
 }
+
+@media only screen and (min-width: 1024px) {
+    .pagination__page{
+        font-size:1.25rem;
+    }
+}

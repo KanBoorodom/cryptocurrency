@@ -3,7 +3,6 @@
 *{
   box-sizing: border-box;
   margin:0;
-  /* font-family: 'IBM Plex Sans Thai', sans-serif; */
 }
 a{
   text-decoration: none;
@@ -14,7 +13,7 @@ body{
   font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 .coinapp{
-  background-color:#1c1f2e/* #1c1f2e */;
+  background-color:#1c1f2e;
   color:white;
   display:flex;
   position:relative;

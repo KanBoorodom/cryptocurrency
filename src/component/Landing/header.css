@@ -1,4 +1,4 @@
-.landing__header{
+.landingHeader{
     padding:7em 2em 10em;
     position:relative;
     background-image: url('https://images.unsplash.com/photo-1518546305927-5a555bb7020d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80');
@@ -13,7 +13,7 @@
     align-items: center;
     text-align: center;
 }
-.landing__header::after{
+.landingHeader::after{
     content:'';
     position:absolute;
     width:100%;
@@ -22,23 +22,23 @@
     top:0;
     z-index:2;
 }
-.landing__header--p,.landing__header--header,.landing__header--btn{
+.landingHeader__p,.landingHeader__header,.landingHeader__btn{
     z-index:3;
 }
-.landing__header--header{
+.landingHeader__header{
     font-size:2.5rem;
     color:#ecae3f;
 }
-.landing__header--p{
+.landingHeader__p{
     color: #e3d7d7;
     font-size: 1.25rem;
     font-weight: 600;
 }
-.landing__header--p:nth-child(3){
+.landingHeader__p:nth-child(3){
     color: #cdbebe;
     font-size: 1rem;
 }
-.landing__header--btn{
+.landingHeader__btn{
     border:none;
     border-radius: 15px;
     padding:.1em 1.7em;
@@ -52,28 +52,28 @@
     cursor: pointer;
     transition: all .4s ease-in-out;
 }
-.landing__header--btn:hover{
+.landingHeader__btn:hover{
     background-position: 100% 0;
     transition: all .4s ease-in-out;
 }
 
 @media screen and (min-width:1440px) {
-    .landing__header{
+    .landingHeader{
         background-position: bottom;
         padding-top:10em;
         height:100vh;
     }
-    .landing__header--header{
+    .landingHeader__header{
         font-size:4.75rem;
     }
-    .landing__header--p{
+    .landingHeader__p{
         font-size:2rem;
     }
-    .landing__header--p:nth-child(3){
+    .landingHeader__p:nth-child(3){
         font-size:1.5rem;
         width:40%;
     }
-    .landing__header--btn{
+    .landingHeader__btn{
         font-size:2rem;
     }
 }

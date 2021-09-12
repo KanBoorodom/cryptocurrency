@@ -1,13 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import './header.css'
+import Logo from '../Logo';
 const Header = () => {
     return (
-            <header className = 'landing__header'>
-                <p className = 'landing__header--p'>Welcome to ...</p>
-                <h1 className = 'landing__header--header'>KBCrypto</h1>
-                <p className = 'landing__header--p'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, fuga?</p>
-                    <Link className = 'landing__header--btn' to = "/home">Enter website</Link>
+            <header className = 'landingHeader'>
+                <Logo/>
+                <p className = 'landingHeader__p'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, fuga?</p>
+                    <Link className = 'landingHeader__btn' to = "/home">Enter website</Link>
             </header>
     )
 }

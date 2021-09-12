@@ -25,26 +25,27 @@ const Home = () => {
         try{
           setLoading(true)
           const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currncySelected}&order=market_cap_desc&per_page=12&page=${currentPage}&sparkline=false`)
-          console.log(response.data)
           setCoins(response.data)
           setLoading(false)
+          console.log(response.data)
           window.scrollTo(0,0)
         }
         catch (e) {
           console.log(e)
         }
       }
-      loadData() 
+      loadData()
     }, [currncySelected,currentPage])
   
     /* Fetch custom search */
     useEffect(()=>{
       const searchCoin = async () => {
-        if(searchAll !== ''){
+        if(searchAll.length > 0){
           try{
             setLoading(true)
-            const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}`) 
-            setSearchResult(response.data)
+            const searchResponse = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}`) 
+            setSearchResult(searchResponse.data)
+            console.log(searchResponse.data)
             setLoading(false)
           }
           catch (e) {
@@ -54,13 +55,16 @@ const Home = () => {
             setLoading(false)
           }
         }
-        else{setSearchResult([])}
+        else{
+          setSearchResult([])
+        }
       }
+
       searchCoin()
     }
     ,[searchAll])
   
-    /* เวลาเปลี่ยนหน้าลางค่าที่ search ไว้ */
+    /* เวลาเปลี่ยนหน้าล้างค่าที่ search ไว้ */
     useEffect(()=>{
       setSearchAll('')
       setSearch('')
@@ -71,7 +75,6 @@ const Home = () => {
       const loadCurrency = async () => {
         try{
           const response = await axios.get('https://api.coingecko.com/api/v3/simple/supported_vs_currencies')
-          console.log(response.data)
           setCurrency(response.data.sort())
         }
         catch (e) {
@@ -82,7 +85,7 @@ const Home = () => {
     }, [])
   
     const filteredCoins = coins.filter(coin =>
-      coin.name.toLowerCase().includes(search.toLowerCase())
+      coin.name.includes(search)
     )
   
     return (
@@ -97,7 +100,7 @@ const Home = () => {
         {/* if search active show only one pagination (at bttm) */}
         {search.length === 0 && <Pagination currentPage = {currentPage} setCurrentPage = {setCurrentPage}/>}
         <div className="coin__container">
-        {searchResult.length > 0 && 
+        {searchResult.length !== 0 && 
                 <Coin 
                         name = {searchResult.name}
                         id = {searchResult.id}

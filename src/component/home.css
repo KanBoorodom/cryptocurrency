@@ -4,13 +4,16 @@
   justify-content: center;
 }
 .cointapp__logo{
-    margin:1em 0 2em;
+    /* margin:1em 0 2em; */
+    margin-top:1em;
     text-align: center;
+    z-index:3;
 }
 .coinapp__name{
-  font-size:2rem;
+  font-size:2.5rem;
   margin:.25em;
   text-transform: capitalize;
+  color:#ecae3f;
 }
 .coinapp__icon{
     font-size:5rem;
@@ -26,17 +29,12 @@
 
 @media only screen and (min-width: 700px) {
   .coin__container{
-    display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding:.5em;
+    width:100%;
   }
 
-  .coin__container{
-    display:flex;
-    flex-direction: row;
-    padding:.5em;
-  }
 }
 
 @media only screen and (min-width: 850px) {
@@ -44,7 +42,12 @@
     display:flex;
     flex-wrap: wrap;
     padding:.5em;
-    /* justify-content: space-around; */
-    gap:4rem;
+    gap:2em;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .coinapp__name{
+    font-size:4rem;
   }
 }

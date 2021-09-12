@@ -6,12 +6,7 @@ const Pagination = ({currentPage,setCurrentPage}) => {
         totalPage.push(i)
     }
     const onClick = e =>{
-        if( parseInt(e.target.innerHTML) === currentPage){
-            window.location.reload()
-        }
-        else{
-            setCurrentPage(parseInt(e.target.innerHTML))
-        }
+        setCurrentPage(parseInt(e.target.innerHTML))
     }
     return (
         <nav>

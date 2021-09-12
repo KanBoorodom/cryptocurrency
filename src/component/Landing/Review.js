@@ -7,7 +7,7 @@ const Review = () => {
     const [current,setCurrent] = useState(0)
     return (
         <div className = "review">
-            <h2 className = "review__head">User review</h2>
+            <h2 className = "review__head">User Testimonials</h2>
             {reviewData.map((review,index) => <ReviewCard 
                     src = {review.src}
                     name = {review.name}

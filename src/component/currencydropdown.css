@@ -6,3 +6,8 @@
     margin-top: 3em;
     width: fit-content;
 }
+@media only screen and (min-width: 1024px) {
+    .currencyDropdown__select{
+        font-size:1.25rem;
+    }
+}
