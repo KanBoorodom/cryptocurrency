@@ -7,7 +7,7 @@ const Header = () => {
             <header className = 'landingHeader'>
                 <Logo/>
                 <p className = 'landingHeader__p'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, fuga?</p>
-                    <Link className = 'landingHeader__btn' to = "/home">Enter website</Link>
+                    <Link className = 'landingHeader__btn' to = "/coins">Enter website</Link>
             </header>
     )
 }

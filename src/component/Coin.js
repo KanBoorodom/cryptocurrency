@@ -1,106 +1,25 @@
-import React,{useState,useEffect,memo} from 'react'
-import axios from 'axios'
-import Loader from "react-loader-spinner";
+import React,{memo} from 'react'
+import { Link } from 'react-router-dom';
+import LineGraph from './LineGraph';
 import './coin.css'
-import { defaults,Line } from 'react-chartjs-2';
 
-const Coin = ({name,id,image,symbol,price,volume,currncySelected,priceChange,searchAll}) => {
-    const [dateData,setDateData] = useState([])
-    const [priceData,setPriceData] = useState([])
-    const [load,setLoad] = useState(false)
+
+const Coin = ({coin,currencySelected,searchAll}) => {
     var d = new Date();
-    const dateFormat = (unix)=>{
-        var date = new Date(unix)
-        var hours = date.getHours()
-        var min = date.getMinutes()
-        var sec = date.getSeconds()
-        var day = date.getDate()
-        var month = date.getMonth()+1 /* getMonth strart from 0 */
-        var year = date.getFullYear()
-        return (`${day}/${month}/${year} ${hours}:${min}:${sec}`)
-    }
-
-    useEffect(()=>{
-      const getGraph = async (id) => {
-        try{
-          setLoad(true)
-          var response
-          if(searchAll.length !== 0){
-            response = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}/market_chart?vs_currency=${currncySelected}&days=1`) 
-          }
-          else{
-            response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currncySelected}&days=1`) 
-          }
-          const graphDate = []
-          const graphValue = [] 
-          for(let i of response.data.prices){
-            graphDate.push(dateFormat(i[0]))
-            graphValue.push(i[1])
-          }
-          setDateData(graphDate)
-          setPriceData(graphValue)
-          setLoad(false)
-        }
-        catch (e) {
-          console.log(e)
-        }
-      }
-      getGraph(id)
-    },[id,searchAll,currncySelected])
-    defaults.font.size = 16
-    const data = {
-        labels: dateData,
-        datasets: [
-          {
-            label: 'Price',
-            data: priceData,
-            fill: true,
-            backgroundColor: priceChange > 0 ? '#125d1e':'#ff63844d' , 
-            borderColor: priceChange > 0 ? '#26bf3e':'#f45050', 
-            pointRadius:2,
-            tension:0.1,
-          },
-        ],
-      };
-      
-      const options = {
-        plugins:{
-          legend:{
-            display:false
-          }
-        },
-        scales:{
-            y:{
-              ticks:{
-                color:'white',
-              }
-            },
-            x:{
-              ticks:{
-                display:false,
-              },          
-            }
-        }
-      }
-
     return (
-        <div className = {`coin ${priceChange > 0 ? 'coin__top--green' : 'coin__top--red'}`}>
-            <img className = "coin__img" src= {image}  alt="crypto" />
+        <div className = {`coin ${coin.price_change_percentage_24h > 0 ? 'coin__top--green' : 'coin__top--red'}`}>
+            <img className = "coin__img" src= {coin.image}  alt="crypto" />
             <div className = "coin__data">
-                <a href={`https://www.coingecko.com/en/coins/${name.toLowerCase().replace(/\s+/g, '-')}`} className = "coin__name">{name} <br/>({symbol.toUpperCase()})</a>
-                <p className="coin__price">{currncySelected} {price.toLocaleString()}</p>
-                <p className="coin__volume">Mkt Cap <br/>{currncySelected.toUpperCase()} {volume.toLocaleString()}</p>
-                <p className = "coin__priceChange" style = {{backgroundColor:priceChange > 0 ? '#1b7642' : '#722727'}}>24h change 
+                <Link className = "coin__name" to = {`/coins/${coin.id.toLowerCase()}`} >{coin.name} <br/>({coin.symbol.toUpperCase()})</Link>
+                <p className="coin__price">{currencySelected} {coin.current_price.toLocaleString()}</p>
+                <p className="coin__volume">Mkt Cap <br/>{currencySelected.toUpperCase()} {coin.market_cap.toLocaleString()}</p>
+                <p className = "coin__priceChange" style = {{backgroundColor:coin.price_change_percentage_24h > 0 ? '#1b7642' : '#722727'}}>24h change 
                     <br />
-                    {priceChange > 0 ? <span className = "coin__priceChange--green"> +{priceChange.toFixed(2)}%</span>
-                        :<span className = "coin__priceChange--red"> {priceChange.toFixed(2)}%</span>}
+                    {coin.price_change_percentage_24h > 0 ? <span className = "coin__priceChange--green"> +{coin.price_change_percentage_24h.toFixed(2)}%</span>
+                        :<span className = "coin__priceChange--red"> {coin.price_change_percentage_24h.toFixed(2)}%</span>}
                 </p>
             </div>
-            {load ? 
-              <div className = 'coin__loadContainer'>
-                <Loader className = 'coin--load' type="ThreeDots" color="#00BFFF" height={80} width={100} /> 
-              </div>
-            : <Line className = 'coin__chart' data={data} options={options}/>} 
+            <LineGraph id = {coin.id} day = {1} searchAll = {searchAll} currencySelected = {currencySelected} priceChange = {coin.price_change_percentage_24h}/>
             <div className="coin__updatetime">
                 <p>Last update {d.toLocaleTimeString('en-GB')}</p>
                 <p>{d.toLocaleDateString()}</p>

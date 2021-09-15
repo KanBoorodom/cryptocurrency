@@ -16,10 +16,11 @@ const Pagination = ({currentPage,setCurrentPage}) => {
                         onClick = {onClick}
                         className = {`pagination__page ${currentPage === p && 'pagination__page--active'}`} 
                         key = {p}
-                    >{p} 
+                    >
+                        {p}
                     </li>)
                 }
-            </ul>            
+            </ul>    
         </nav>
     )
 }

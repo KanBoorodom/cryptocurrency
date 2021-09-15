@@ -74,7 +74,7 @@
 .coin__name{
     font-size:1.75rem;
     font-weight:700;
-    color:#D89216; /*#ffc300 #be8c5c */;
+    color:#D89216; 
 }
 .coin__updatetime{
     margin-top:1em;

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Loader from "react-loader-spinner"; /* https://www.npmjs.com/package/react-loader-spinner */
+
 import './home.css';
 import Logo from './Logo';
 import Coin from './Coin';
@@ -8,12 +9,13 @@ import Coinsearch from './Coinsearch';
 import CurrencyDropdown from './CurrencyDropdown';
 import Pagination from './Pagination';
 
-const Home = ({currencySelected,setCurrencySelected}) => {
+const Home = () => {
     const [coins,setCoins] = useState([])
     const [search,setSearch] = useState('')
     const [searchAll,setSearchAll] = useState('')
-    const [searchResult,setSearchResult] = useState({})
+    const [searchResult,setSearchResult] = useState([])
     const [currency,setCurrency] = useState([])
+    const [currncySelected,setCurrncySelected] = useState('thb')
     const [loading,setLoading] = useState()
     const [currentPage,setCurrentPage] = useState(1)
   
@@ -22,7 +24,7 @@ const Home = ({currencySelected,setCurrencySelected}) => {
       const loadData = async () => {
         try{
           setLoading(true)
-          const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currencySelected}&order=market_cap_desc&per_page=12&page=${currentPage}&sparkline=false`)
+          const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currncySelected}&order=market_cap_desc&per_page=12&page=${currentPage}&sparkline=false`)
           setCoins(response.data)
           setLoading(false)
           console.log(response.data)
@@ -33,7 +35,7 @@ const Home = ({currencySelected,setCurrencySelected}) => {
         }
       }
       loadData()
-    }, [currencySelected,currentPage])
+    }, [currncySelected,currentPage])
   
     /* Fetch custom search */
     useEffect(()=>{
@@ -41,19 +43,9 @@ const Home = ({currencySelected,setCurrencySelected}) => {
         if(searchAll.length > 0){
           try{
             setLoading(true)
-            /* รูปแบบข้อมูลที่ได้จากการ fetch ไม่เหมือนการ fetch หลายๆเหรียญ */
             const searchResponse = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}`) 
-            setSearchResult({data:
-              {
-                'name':searchResponse.data.name,
-                'id' : searchResponse.data.id,
-                'image' : searchResponse.data.image.large, 
-                'symbol' : searchResponse.data.symbol,
-                'market_cap' : searchResponse.data.market_data.market_cap[`${currencySelected}`],
-                'current_price' : searchResponse.data.market_data.current_price[`${currencySelected}`],
-                'price_change_percentage_24h' : searchResponse.data.market_data.price_change_percentage_24h_in_currency[`${currencySelected}`]
-              }
-            })
+            setSearchResult(searchResponse.data)
+            console.log(searchResponse.data)
             setLoading(false)
           }
           catch (e) {
@@ -70,7 +62,7 @@ const Home = ({currencySelected,setCurrencySelected}) => {
 
       searchCoin()
     }
-    ,[searchAll,currencySelected])
+    ,[searchAll])
   
     /* เวลาเปลี่ยนหน้าล้างค่าที่ search ไว้ */
     useEffect(()=>{
@@ -95,23 +87,30 @@ const Home = ({currencySelected,setCurrencySelected}) => {
     const filteredCoins = coins.filter(coin =>
       coin.name.includes(search)
     )
+  
     return (
       <>
         <Logo />
         <Coinsearch search = {search} setSearch = {setSearch} setSearchAll = {setSearchAll}/>
         <CurrencyDropdown 
-          currencySelected = {currencySelected} 
-          setCurrencySelected = {setCurrencySelected}
+          currncySelected = {currncySelected} 
+          setCurrncySelected = {setCurrncySelected}
           currency = {currency}
         />
         {/* if search active show only one pagination (at bttm) */}
         {search.length === 0 && <Pagination currentPage = {currentPage} setCurrentPage = {setCurrentPage}/>}
         <div className="coin__container">
-        {Object.keys(searchResult).length !== 0 && 
+        {searchResult.length !== 0 && 
                 <Coin 
-                  coin = {searchResult.data}
-                  currencySelected = {currencySelected}
-                  searchAll = {searchAll}
+                        name = {searchResult.name}
+                        id = {searchResult.id}
+                        image = {searchResult.image.large} 
+                        symbol = {searchResult.symbol}
+                        volume = {searchResult.market_data.market_cap[`${currncySelected}`]}
+                        currncySelected = {currncySelected}
+                        price = {searchResult.market_data.current_price[`${currncySelected}`]}
+                        priceChange = {searchResult.market_data.price_change_percentage_24h_in_currency[`${currncySelected}`]}
+                        searchAll = {searchAll}
                 />
           }
           {loading ?       
@@ -122,13 +121,19 @@ const Home = ({currencySelected,setCurrencySelected}) => {
               width={500}
               className = 'loader'
             />
-            : Object.keys(searchResult).length === 0 ? filteredCoins.map(coin => {
-              return  <Coin 
+            : searchResult.length === 0 ? filteredCoins.map(coin => {
+              return <Coin 
                         key = {coin.id} 
-                        coin = {coin}
-                        currencySelected = {currencySelected}
+                        name = {coin.name}
+                        id = {coin.id}
+                        image = {coin.image} 
+                        symbol = {coin.symbol}
+                        volume = {coin.market_cap}
+                        currncySelected = {currncySelected}
+                        price = {coin.current_price}
+                        priceChange = {coin.price_change_percentage_24h}  
                         searchAll = {searchAll}
-                      />
+                    />
             })
           : null}
         </div>

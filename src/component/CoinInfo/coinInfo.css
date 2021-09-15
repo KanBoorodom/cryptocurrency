@@ -1,0 +1,137 @@
+.coinInfo{
+    width:100%;
+    padding:1em 0.5em;
+}
+.coinInfo__head{
+    display:flex;
+    margin:1em 0 .5em;
+}
+.coinInfo__head__rank{
+    font-size:.8rem;
+    font-weight: 600;
+    color:#e3e2e2;
+    width: fit-content;
+    background-color:#393e57;
+    padding:.25em 1em;
+    border-radius:10px;
+}
+.coinInfo__head__name{
+font-size:1.75rem;
+font-weight:700;
+color:#D89216; 
+}
+.coinInfo__head__img{
+    width:43px;
+    height:43px;
+    align-self: center;
+}
+.coinInfo__price{
+    font-size:2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.coinInfo__priceChange{
+    position:absolute;
+    bottom:-30%;
+    left:1%;
+    font-size:1.25rem;
+    font-weight: 500;
+    color:#2bbb2b;
+}
+.--red{
+    color:#ee3535;
+}
+.coinInfo__value{
+    width:100%;
+}
+.coinInfo__value p{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom:.25em;
+    margin-top:.5em;
+    border-bottom: 2px solid#ace1da;
+    font-weight: 500;
+}
+.coinInfo__value p span{
+    color:#e4d7d7;
+    text-transform: uppercase;
+}
+.coinInfo__OtherInfo{
+
+}
+.coinInfo__help{
+    margin-top: 1em;
+    cursor:pointer;
+}
+.coinInfo__help__container{
+    height:0px;
+    opacity:0;
+    display:none;
+}
+.--active{
+    height:1200px;
+    display:initial;
+}
+.coinInfo__help__question{
+    font-size:0.9rem;
+    font-weight: 600;
+    background-color:#11c7af;
+    width:fit-content;
+    margin:1em 0 .25em;
+    padding:.25em;
+    border-radius:10px;
+}
+.coinInfo__help__equation{
+    font-size: 1rem;
+    font-weight: 500;
+}
+.coinInfo__help__helpInfo{
+    font-size:0.85rem;
+    font-weight: 400;
+    color:#c4bbc2;
+    margin-bottom:.75em;
+    padding-bottom:.5em;
+    border-bottom: 4px dashed#ace1da;
+}
+.coinInfo__value__ATPercentage,.coinInfo__value__ATDate{
+    width:100%;
+    text-align: right;
+}
+.coinInfo__value__ATDate{
+    font-size:.6rem;
+    color:#c4b8b8 !important;
+}
+.daySelect{
+    display:flex;
+    justify-content: space-around;
+    width:80%;
+    background:#0d5379;
+    padding:.25em 0;
+    margin:2em auto 0;
+    border-radius:10px;
+}
+.daySelect div{
+    width:25%;
+    padding: .25em;
+    text-align: center;
+    cursor:pointer;
+}
+.daySelect div:hover{
+    background:#1d6085;
+}
+.daySelect div:nth-child(1){
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.daySelect div:nth-child(2){
+    border-left: 3.25px solid #367a9f;
+    border-right:3.25px solid #367a9f;
+}
+.daySelect div:nth-child(3){
+    border-right:3.25px solid #367a9f;
+}
+.daySelect div:nth-child(4){
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
