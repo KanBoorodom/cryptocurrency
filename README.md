@@ -1,10 +1,10 @@
 Cryptocurrency website\
-Search and view crypto price,MarketCap,24Hrs change percentage.\
-You can click at each coin name for more information at coingecko website.\
+Search and view your crypto.\
+You can click at each coin name for more information.\
 You can adjust currency exchange rate by select an option at dropdown tab.\
 Crypto price refresh everytime page got refresh.\
-I got better understanding in HTML,CSS,React,API call and Responsive design (Mobile first) from creating this website.\
-Using coingecko API https://www.coingecko.com/en/api/documentation \
+I got better understanding in HTML,CSS,React,API call and Responsive design from creating this website.\
+API from Coingecko https://www.coingecko.com/en/api/documentation \
 Illust from https://undraw.co \
 Live test at https://kanboorodom.github.io/cryptocurrency/
 ![image](https://user-images.githubusercontent.com/78006318/133459518-4869dc32-7e03-4119-b5bc-31a5773f1cf0.png) \
