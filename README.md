@@ -13,7 +13,8 @@ Live test at https://kanboorodom.github.io/cryptocurrency/
 ![image](https://user-images.githubusercontent.com/78006318/133459865-60176dce-2795-4c79-b0a6-2b47f380da2b.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133459978-68482c4d-fc79-400c-ad39-fb25577bb436.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133460264-5aa95da5-5be6-4293-9e6c-33fb2ac4e464.png) \
-![image](https://user-images.githubusercontent.com/78006318/133636113-3872cf32-393e-43f0-93e5-cc03c58f750f.png) \
+![image](https://user-images.githubusercontent.com/78006318/133815446-559823f1-273f-463d-be5f-48fb78fc8dc5.png) \
+![image](https://user-images.githubusercontent.com/78006318/133815590-7ad98ce5-5b0a-492e-88e1-076f23f45a19.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133459328-66dd1577-a713-4eed-a481-39dd00af6885.png) \
 
 
