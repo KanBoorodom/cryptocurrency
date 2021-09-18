@@ -13,9 +13,13 @@ Live test at https://kanboorodom.github.io/cryptocurrency/
 ![image](https://user-images.githubusercontent.com/78006318/133459865-60176dce-2795-4c79-b0a6-2b47f380da2b.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133459978-68482c4d-fc79-400c-ad39-fb25577bb436.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133460264-5aa95da5-5be6-4293-9e6c-33fb2ac4e464.png) \
-![image](https://user-images.githubusercontent.com/78006318/133815446-559823f1-273f-463d-be5f-48fb78fc8dc5.png) \
-![image](https://user-images.githubusercontent.com/78006318/133815590-7ad98ce5-5b0a-492e-88e1-076f23f45a19.png) \
+![image](https://user-images.githubusercontent.com/78006318/133873300-0c598be6-352f-4700-90a7-4a746ec504da.png) \
+![image](https://user-images.githubusercontent.com/78006318/133873320-fe608fa5-14a8-4b76-a43a-202416cdb2a3.png) \
 ![image](https://user-images.githubusercontent.com/78006318/133459328-66dd1577-a713-4eed-a481-39dd00af6885.png) \
+![image](https://user-images.githubusercontent.com/78006318/133873351-4c09e6b2-b0c7-49c1-ac6f-2e15432cd98c.png) \
+![image](https://user-images.githubusercontent.com/78006318/133873367-15d93f93-a098-4a5c-b841-f5b05382cd83.png)
+
+
 
 
 
