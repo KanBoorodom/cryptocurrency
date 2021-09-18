@@ -3,6 +3,7 @@ import React,{useState} from 'react'
 import Landing from './component/Landing/Landing';
 import Home from './component/Home';
 import CoinInfo from './component/CoinInfo/CoinInfo'
+import Lost from './component/Lost';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -11,6 +12,7 @@ import {
 } from 'react-router-dom';
 
 function App() {
+  const [currency,setCurrency] = useState([])
   const [currencySelected,setCurrencySelected] = useState('thb')
   
   return (
@@ -22,14 +24,17 @@ function App() {
           </Route>
           <Route  exact path = "/coins">
             <Home 
+              currency = {currency} setCurrency = {setCurrency}
               currencySelected = {currencySelected} setCurrencySelected = {setCurrencySelected} 
             />
           </Route>
           <Route path = "/coins/:coinName">
             <CoinInfo currencySelected = {currencySelected}/>
           </Route>
+          <Route>
+            <Lost />
+          </Route>
         </Switch>
-        {/* <CoinInfo/> */}
       </div>
     </Router>
   );

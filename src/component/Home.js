@@ -8,12 +8,11 @@ import Coinsearch from './Coinsearch';
 import CurrencyDropdown from './CurrencyDropdown';
 import Pagination from './Pagination';
 
-const Home = ({currencySelected,setCurrencySelected}) => {
+const Home = ({currency,setCurrency,currencySelected,setCurrencySelected}) => {
     const [coins,setCoins] = useState([])
     const [search,setSearch] = useState('')
     const [searchAll,setSearchAll] = useState('')
     const [searchResult,setSearchResult] = useState({})
-    const [currency,setCurrency] = useState([])
     const [loading,setLoading] = useState()
     const [currentPage,setCurrentPage] = useState(1)
   

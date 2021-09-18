@@ -1,12 +1,12 @@
 import React from 'react'
 import { v4 as uuid_v4 } from "uuid" 
 import './currencydropdown.css'
-const CurrencyDropdown = ({currncySelected,setCurrncySelected,currency}) => {
+const CurrencyDropdown = ({currencySelected,setCurrencySelected,currency}) => {
     const handleChange = (e)=>{
-        setCurrncySelected(e.target.value)
+        setCurrencySelected(e.target.value)
     }
     return (
-        <select className = 'currencyDropdown__select' value = {currncySelected} onChange = {handleChange}>
+        <select className = 'currencyDropdown__select' value = {currencySelected} onChange = {handleChange}>
             <option value="thb">--- Choose Currency ---</option>
             {currency.map(c => 
                 <option 
