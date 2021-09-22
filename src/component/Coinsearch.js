@@ -8,26 +8,26 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     }
 
     const keyDown = e =>{
-        if(e.key === 'Enter' && search.length !== 0){
-            e.preventDefault()
-            if(search.length !== 0){
-                setSearchAll(search.toLowerCase().replace(/\s+/g, '-'))
-            }
-        }
         if(e.key === 'Backspace' && search.length === 1){
             setSearchAll('')
             setSearch('')
         }
     }
+    const submitHandle = e => {
+        e.preventDefault()
+        setSearchAll(search.toLowerCase().replace(/\s+/g, '-'))
+    }
     return (
         <div className = 'coinsearch'>
-            <form action="" className = 'coinsearch__form'>
+            <form action="" className = 'coinsearch__form' onSubmit = {submitHandle}>
                 <label htmlFor="searchPage">{search === '' ? 'Search' : 'Press enter for searching'}</label>
                 <input type="text" 
                     placeholder = 'Enter coin name..'
                     maxLength = "20"
                     id = 'searchPage'
                     className = 'coinsearch__input'
+                    required
+                    autoComplete = 'off'
                     value = {search}
                     onChange = {handleChange}
                     onKeyDown = {keyDown}

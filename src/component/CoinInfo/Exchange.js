@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import CurrencyDropdown from '../CurrencyDropdown'
 import './coinInfo.css'
 const Exchange = ({symbol,price,currencySelected}) => {
     const [exchangeValue,setExchangeValue] = useState(1)

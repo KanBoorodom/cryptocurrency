@@ -10,7 +10,7 @@ import DaySelect from './DaySelect';
 import LineGraph from '../LineGraph'
 import TopSearch from './TopSearch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight,faGlobeAsia } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 const CoinInfo = ({currencySelected}) => {
     const [coinInfo,setCoinInfo] = useState([])

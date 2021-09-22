@@ -12,9 +12,8 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  const [currency,setCurrency] = useState([])
   const [currencySelected,setCurrencySelected] = useState('thb')
-  
+  const [currentPage,setCurrentPage] = useState(1)
   return (
     <Router>
       <div className="coinapp">
@@ -24,8 +23,8 @@ function App() {
           </Route>
           <Route  exact path = "/coins">
             <Home 
-              currency = {currency} setCurrency = {setCurrency}
-              currencySelected = {currencySelected} setCurrencySelected = {setCurrencySelected} 
+              currentPage = {currentPage} setCurrentPage = {setCurrentPage}
+              currencySelected = {currencySelected} setCurrencySelected = {setCurrencySelected}
             />
           </Route>
           <Route path = "/coins/:coinName">

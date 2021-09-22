@@ -8,14 +8,14 @@ import Coinsearch from './Coinsearch';
 import CurrencyDropdown from './CurrencyDropdown';
 import Pagination from './Pagination';
 
-const Home = ({currency,setCurrency,currencySelected,setCurrencySelected}) => {
+const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected}) => {
     const [coins,setCoins] = useState([])
+    const [currency,setCurrency] = useState([])
     const [search,setSearch] = useState('')
     const [searchAll,setSearchAll] = useState('')
     const [searchResult,setSearchResult] = useState({})
     const [loading,setLoading] = useState()
-    const [currentPage,setCurrentPage] = useState(1)
-  
+    
     /* Fetch all coin data in page*/
     useEffect(() => {
       const loadData = async () => {
@@ -56,9 +56,9 @@ const Home = ({currency,setCurrency,currencySelected,setCurrencySelected}) => {
             setLoading(false)
           }
           catch (e) {
-            console.log(e)
             alert('Coin not found...')
             setSearch('')
+            setSearchAll('')
             setLoading(false)
           }
         }
@@ -108,7 +108,8 @@ const Home = ({currency,setCurrency,currencySelected,setCurrencySelected}) => {
         <div className="coin__container">
         {Object.keys(searchResult).length !== 0 && 
                 <Coin 
-                  coin = {searchResult.data}
+                  /* coin = {searchResult.data} */
+                  coin = {searchResult['data']}
                   currencySelected = {currencySelected}
                   searchAll = {searchAll}
                 />

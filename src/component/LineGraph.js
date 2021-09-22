@@ -20,11 +20,12 @@ const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
     }
 
     useEffect(()=>{
+        let unmouted = false
         const getGraph = async (id) => {
           try{
             setLoadGraph(true)
-            var response
-            if(searchAll.length !== 0){
+            var response = null
+            if(searchAll !== ''){
               response = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}/market_chart?vs_currency=${currencySelected}&days=${day}`) 
             }
             else{
@@ -44,7 +45,11 @@ const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
             console.log(e)
           }
         }
-        getGraph(id)
+        /* Prevent unmouted warning */
+        if(!unmouted){getGraph(id)}
+        return () => {
+          unmouted = true
+        }
       },[id,searchAll,currencySelected,day])
       defaults.font.size = 14
 
