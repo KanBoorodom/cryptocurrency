@@ -40,6 +40,7 @@
 @media only screen and (min-width: 850px) {
   .coin__container{
     gap:1.25em;
+    justify-content: space-evenly;
   }
 }
 
