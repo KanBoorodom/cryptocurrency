@@ -4,7 +4,7 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     const toCapital = (string) => string.charAt(0).toUpperCase() + string.slice(1);
       
     const handleChange = e => {
-        setSearch(toCapital(e.target.value))
+        setSearch(e.target.value.toLowerCase())
     }
 
     const keyDown = e =>{

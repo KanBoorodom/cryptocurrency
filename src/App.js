@@ -6,7 +6,9 @@ import CoinInfo from './component/CoinInfo/CoinInfo'
 import Lost from './component/Lost';
 import './App.css';
 import {
-  BrowserRouter as Router,
+  /* BrowserRouter as Router, */
+  /* GithubPage need to use hash router instead of BrowserRouter to avoid refresh problem */
+  HashRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
@@ -18,7 +20,7 @@ function App() {
     <Router>
       <div className="coinapp">
         <Switch>
-          <Route exact path = "/cryptocurrency">
+          <Route exact path = "/">
               <Landing />
           </Route>
           <Route  exact path = "/coins">
@@ -30,7 +32,7 @@ function App() {
           <Route path = "/coins/:coinName">
             <CoinInfo currencySelected = {currencySelected}/>
           </Route>
-          <Route>
+          <Route path = "*">
             <Lost />
           </Route>
         </Switch>

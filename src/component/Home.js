@@ -92,7 +92,7 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
     }, [])
   
     const filteredCoins = coins.filter(coin =>
-      coin.name.includes(search)
+      coin.name.toLowerCase().replace(/\s/g, "").includes(search)
     )
     return (
       <>
