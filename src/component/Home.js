@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import Loader from "react-loader-spinner"; /* https://www.npmjs.com/package/react-loader-spinner */
 import './home.css';
@@ -15,6 +15,8 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
     const [searchAll,setSearchAll] = useState('')
     const [searchResult,setSearchResult] = useState({})
     const [loading,setLoading] = useState()
+
+    const firstRender = useRef(true)
     
     /* Fetch all coin data in page*/
     useEffect(() => {
@@ -37,12 +39,11 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
     /* Fetch custom search */
     useEffect(()=>{
       const searchCoin = async () => {
-        if(searchAll.length > 0){
           try{
             setLoading(true)
             /* รูปแบบข้อมูลที่ได้จากการ fetch ไม่เหมือนการ fetch หลายๆเหรียญ */
-            const searchResponse = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}`) 
-            setSearchResult({data:
+            const searchResponse = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}`)
+            setSearchResult(
               {
                 'name':searchResponse.data.name,
                 'id' : searchResponse.data.id,
@@ -52,7 +53,7 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
                 'current_price' : searchResponse.data.market_data.current_price[`${currencySelected}`],
                 'price_change_percentage_24h' : searchResponse.data.market_data.price_change_percentage_24h_in_currency[`${currencySelected}`]
               }
-            })
+            )
             setLoading(false)
           }
           catch (e) {
@@ -61,13 +62,9 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
             setSearchAll('')
             setLoading(false)
           }
-        }
-        else{
-          setSearchResult([])
-        }
       }
 
-      searchCoin()
+      if(! firstRender.current){searchCoin()}
     }
     ,[searchAll,currencySelected])
   
@@ -89,6 +86,7 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
         }
       }
       loadCurrency()
+      firstRender.current = false
     }, [])
   
     const filteredCoins = coins.filter(coin =>
@@ -109,7 +107,7 @@ const Home = ({currentPage,setCurrentPage,currencySelected,setCurrencySelected})
         {Object.keys(searchResult).length !== 0 && 
                 <Coin 
                   /* coin = {searchResult.data} */
-                  coin = {searchResult['data']}
+                  coin = {searchResult}
                   currencySelected = {currencySelected}
                   searchAll = {searchAll}
                 />

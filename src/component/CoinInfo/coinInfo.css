@@ -209,7 +209,7 @@ color:#D89216;
 }
 @media only screen and (min-width: 1024px) {
     .coinInfo__top__right{
-        width:35%;
+        width:85%;
         padding:1.5em 1.25em 1.25em;
         display:flex;
         flex-wrap: wrap;
@@ -288,6 +288,9 @@ color:#D89216;
     }
 }
 @media only screen and (min-width: 1100px) {
+    .coinInfo__top__right{
+        width:35%;
+    }
     .coinInfo__bot{
         display:flex;
         align-items: center;

@@ -6,8 +6,7 @@ import './coin.css'
 
 const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
     const [loadGraph,setLoadGraph] = useState(false)
-    const [dateData,setDateData] = useState([])
-    const [priceData,setPriceData] = useState([])
+    const [priceInfo,setPriceInfo] = useState({'date':[], 'price':[]})
     const dateFormat = (unix)=>{
         var date = new Date(unix)
         var hours = date.getHours()
@@ -31,34 +30,30 @@ const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
             else{
               response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currencySelected}&days=${day}`) 
             }
-            const graphDate = []
-            const graphValue = [] 
-            for(let i of response.data.prices){
-              graphDate.push(dateFormat(i[0]))
-              graphValue.push(i[1])
-            }
-            setDateData(graphDate)
-            setPriceData(graphValue)
+            /* Prevent unmouted warning */
+            if(unmouted){return null}
+
+            const { prices } = response.data
+            setPriceInfo({'date': prices.map(p => dateFormat(p[0])), 'price': prices.map(p => p[1])})
             setLoadGraph(false)
           }
           catch (e) {
             console.log(e)
           }
         }
-        /* Prevent unmouted warning */
-        if(!unmouted){getGraph(id)}
+        getGraph(id)
         return () => {
           unmouted = true
         }
       },[id,searchAll,currencySelected,day])
-      defaults.font.size = 14
 
+      defaults.font.size = 14
       const data = {
-        labels: dateData,
+        labels: priceInfo.date,
         datasets: [
           {
             label: 'Price',
-            data: priceData,
+            data: priceInfo.price,
             fill: true,
             backgroundColor: priceChange > 0 ? '#125d1e':'#ff63844d' , 
             borderColor: priceChange > 0 ? '#26bf3e':'#f45050', 
