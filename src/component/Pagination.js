@@ -1,24 +1,22 @@
 import React from 'react'
+import {useParams} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './pagination.css'
-const Pagination = ({currentPage,setCurrentPage}) => {
-    var totalPage = []
-    for(let i=1; i<11; i++){
-        totalPage.push(i)
-    }
-    const onClick = e =>{
-        setCurrentPage(parseInt(e.target.innerHTML))
-    }
+const Pagination = () => {
+    var totalPage = [1,2,3,4,5,6,7,8,9,10]
+
+    let {pageNow} = useParams()
     return (
         <nav>
             <ul className = 'pagination__ul'>
                 {totalPage.map(p => 
-                    <li 
-                        onClick = {onClick}
-                        className = {`pagination__page ${currentPage === p && 'pagination__page--active'}`} 
-                        key = {p}
-                    >
-                        {p}
-                    </li>)
+                    <Link to = {`/coins/${p}`} key = {p}>
+                        <li 
+                            className = {`pagination__page ${p === parseInt(pageNow) && 'pagination__page--active'}`}
+                        >
+                            {p}
+                        </li>
+                    </Link>)  
                 }
             </ul>    
         </nav>

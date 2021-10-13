@@ -16,9 +16,9 @@
     border-radius:10px;
 }
 .coinInfo__head__name{
-font-size:1.75rem;
-font-weight:700;
-color:#D89216; 
+    font-size:1.75rem;
+    font-weight:700;
+    color:#D89216; 
 }
 .coinInfo__head__img{
     width:43px;

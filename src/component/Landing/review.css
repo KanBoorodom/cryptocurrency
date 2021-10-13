@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
 .review{
     position:relative;
     font-family: 'Poppins', sans-serif;
@@ -67,12 +69,13 @@
     border-top-right-radius: 15px;
 }
 .reviewCard__info__name{
-    margin-top:.25em;
-    font-size:2rem;
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    color: #90a4c3;
 }
 .reviewCard__info__p{
     padding: .25 .25em;
-    color: #9099a9;
+    color: black;
     font-weight: 500;
 }
 .unactive{
@@ -109,6 +112,14 @@
         max-height:500px;
         border-bottom-left-radius: 15px;
         border-top-right-radius: 0;
+    }
+    .reviewCard__info__name{
+        font-size: 3.5rem;
+    }
+    .reviewCard__info__p{
+        font-size:1.15rem;
+        margin-top:1em;
+
     }
     .reviewCard__arrowL{
         left:-2%;

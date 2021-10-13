@@ -1,12 +1,10 @@
-import React,{useState,useEffect} from 'react'
+import React,{memo} from 'react'
+import useFetch from './useFetch';
 import Loader from "react-loader-spinner";
 import { defaults,Line } from 'react-chartjs-2';
-import axios from 'axios'
 import './coin.css'
 
 const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
-    const [loadGraph,setLoadGraph] = useState(false)
-    const [priceInfo,setPriceInfo] = useState({'date':[], 'price':[]})
     const dateFormat = (unix)=>{
         var date = new Date(unix)
         var hours = date.getHours()
@@ -17,38 +15,19 @@ const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
         var year = date.getFullYear()
         return (`${day}/${month}/${year} ${hours}:${min}:${sec}`)
     }
-
-    useEffect(()=>{
-        let unmouted = false
-        const getGraph = async (id) => {
-          try{
-            setLoadGraph(true)
-            var response = null
-            if(searchAll !== ''){
-              response = await axios.get(`https://api.coingecko.com/api/v3/coins/${searchAll}/market_chart?vs_currency=${currencySelected}&days=${day}`) 
-            }
-            else{
-              response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currencySelected}&days=${day}`) 
-            }
-            /* Prevent unmouted warning */
-            if(unmouted){return null}
-
-            const { prices } = response.data
-            setPriceInfo({'date': prices.map(p => dateFormat(p[0])), 'price': prices.map(p => p[1])})
-            setLoadGraph(false)
-          }
-          catch (e) {
-            console.log(e)
-          }
-        }
-        getGraph(id)
-        return () => {
-          unmouted = true
-        }
-      },[id,searchAll,currencySelected,day])
-
-      defaults.font.size = 14
-      const data = {
+    let fetch = (searchAll !== '') ? searchAll : id
+    
+    const {data,loading} = useFetch(`https://api.coingecko.com/api/v3/coins/${fetch}/market_chart?vs_currency=${currencySelected}&days=${day}`)
+    if(loading){
+      return  (   
+        <div className = 'coin__loadContainer'>
+          <Loader className = 'coin--load' type="ThreeDots" color="#00BFFF" height={80} width={100} /> 
+        </div>
+      )
+    }
+    const priceInfo = {'date': data.prices.map(p => dateFormat(p[0])), 'price': data.prices.map(p => p[1])}
+    defaults.font.size = 14
+    const graphData = {
         labels: priceInfo.date,
         datasets: [
           {
@@ -82,17 +61,11 @@ const LineGraph = ({id,day,searchAll, currencySelected,priceChange}) => {
             }
         }
       }
-
     return (
         <>
-            {loadGraph ? 
-            <div className = 'coin__loadContainer'>
-                <Loader className = 'coin--load' type="ThreeDots" color="#00BFFF" height={80} width={100} /> 
-            </div>
-            :
-            <Line className = 'coin__chart' data={data} options={options}/>}
+            <Line className = 'coin__chart' data={graphData} options={options}/>
         </>
-    )
+    )    
 }
 
-export default LineGraph
+export default memo(LineGraph)

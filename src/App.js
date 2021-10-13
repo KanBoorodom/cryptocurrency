@@ -1,5 +1,5 @@
 /* API https://www.coingecko.com/en/api/documentation */
-import React,{useState} from 'react'
+import React from 'react'
 import Landing from './component/Landing/Landing';
 import Home from './component/Home';
 import CoinInfo from './component/CoinInfo/CoinInfo'
@@ -14,8 +14,7 @@ import {
 } from 'react-router-dom';
 
 function App() {
-  const [currencySelected,setCurrencySelected] = useState('thb')
-  const [currentPage,setCurrentPage] = useState(1)
+
   return (
     <Router>
       <div className="coinapp">
@@ -23,14 +22,11 @@ function App() {
           <Route exact path = "/">
               <Landing />
           </Route>
-          <Route  exact path = "/coins">
-            <Home 
-              currentPage = {currentPage} setCurrentPage = {setCurrentPage}
-              currencySelected = {currencySelected} setCurrencySelected = {setCurrencySelected}
-            />
+          <Route  exact path = "/coins/:pageNow">
+            <Home />
           </Route>
-          <Route path = "/coins/:coinName">
-            <CoinInfo currencySelected = {currencySelected}/>
+          <Route path = "/coins/page=:pageNow/:coinName/currency=:currencySelected">
+            <CoinInfo/>
           </Route>
           <Route path = "*">
             <Lost />

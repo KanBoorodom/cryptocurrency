@@ -26,13 +26,41 @@
   display:flex;
   justify-content: center;
 }
-
+.notfound{
+  width:80%;
+  margin:2em auto;
+  text-align: center;
+}
+.notfound h2{
+  font-size:1.5rem;
+  color:#9197b4;
+  margin-bottom:.5em;
+}
+.notfound button{
+  color: white;
+  background: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 3px solid #FC466B;
+  border-radius: 10px;
+  padding: .5em 2em;
+  margin-top:1em;
+  cursor:pointer;
+  transition: all .5s ease-in-out;
+}
+.notfound button:hover{
+  background:#FC466B;
+  transition: all .5s ease-in-out;
+}
 @media only screen and (min-width: 700px) {
   .coin__container{
     flex-direction: row;
     flex-wrap: wrap;
     padding:.5em;
     width:100%;
+  }
+  .notfound h2{
+    font-size:3.5rem;
   }
 
 }

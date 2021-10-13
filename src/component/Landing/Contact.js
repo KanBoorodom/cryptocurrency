@@ -7,15 +7,16 @@ const Contact = ({class1,class2,info}) => {
     }
     const mouseUp = ()=>{
         setInfoClick(true)
-        var x = document.createElement("INPUT")
-        x.value = info
-        navigator.clipboard.writeText(x.value);
     }
 
     return (
-        <>
+        /*  
+            _blank have vulnerability for phishing
+            add rel="noopener noreferrer"      
+        */
+        <a href = {info} target="_blank" rel="noopener noreferrer">
             <i className = {`${class1} ${class2} ${infoClick && 'gelatine'}`} onMouseDown = {mouseDown} onMouseUp = {mouseUp} ></i>
-        </>
+        </a>
     )
 }
 

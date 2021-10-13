@@ -19,7 +19,7 @@ const Coinsearch = ({search,setSearch,setSearchAll}) => {
     return (
         <div className = 'coinsearch'>
             <form action="" className = 'coinsearch__form' onSubmit = {submitHandle}>
-                <label htmlFor="searchPage">{search === '' ? 'Search' : 'Press enter for searching'}</label>
+                <label htmlFor="searchPage">{!search ? 'Search' : 'Press enter for searching'}</label>
                 <input type="text" 
                     placeholder = 'Enter coin name..'
                     maxLength = "20"

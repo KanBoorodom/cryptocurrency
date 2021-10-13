@@ -44,17 +44,17 @@
     padding:.1em 1.7em;
     margin:2em 0;
     background: linear-gradient(to right, #1D2671, #C33764); 
-    background-size: 300% 100%;
+    background-size: 250% 100%;
     font-family: 'IBM Plex Sans Thai', sans-serif;
     font-size:1.5rem;
     font-weight: 600;
     color:white;
     cursor: pointer;
-    transition: all .4s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 .landingHeader__btn:hover{
-    background-position: 100% 0;
-    transition: all .4s ease-in-out;
+    background-position: 100% 0%;
+    transition: all 1s ease-in-out;
 }
 
 @media screen and (min-width:1440px) {
